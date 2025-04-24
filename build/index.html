@@ -1,0 +1,40 @@
+<<!DOCTYPE html>
+  <html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
+
+  <body>
+    <button id="btnCrearProjecto">Crea un nuevo projecto</button>
+    <div id="root"></div>
+    <div id="projectForm">
+      <form>
+        <h2>Crear Projecto</h2>
+        <label for="nombre">nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <input type="submit" id="submitProjec" name="submitProjec" value="crear Projecto">
+        <button id="closeProjectForm">X</button>
+      </form>
+    </div>
+    <div id="todoForm">
+      <form>
+        <h2>Crear tarea</h2>
+        <label for="titulo">titulo</label>
+        <input type="text" name="titulo" id="titulo" required>
+        <label for="duracion">dduracion</label>
+        <input type="text" name="duracion" id="duracion" required>
+        <label for="fecha">fecha limite</label>
+        <input type="date" name="fecha" id="fecha" required>
+        <label for="prioridad">prioridad</label>
+        <input type="text" name="prioridad" id="prioridad">
+        <input type="submit" id="submitTodo" name="submitTdodo" value="crear tarea">
+        <button id="closeTodoForm">X</button>
+      </form>
+    </div>
+
+  </body>
+
+  </html>

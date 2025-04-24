@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <button id="btnCrearProjecto">Crea un nuevo projecto</button>
+  <section class="overlay hidden"></section>
+  <div id="root">
+    <section class="project">
+      <h2>Nombre Proyecto</h2>
+      <button class="projectRemoveBtn" data-id="${projecto.id}">X</button>
+      <section class="todoContainer">
+        <article class="todo">
+          <ul>
+            <li>titulo</li>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+        <article class="todo">
+          <ul>
+            <li>titulo</li>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+        <article class="todo">
+          <ul>
+            <li>titulo</li>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+    <section class="project">
+      <h2>Nombre Proyecto</h2>
+      <section class="todoContainer">
+        <article class="todo">
+          <ul>
+            <li>titulo</li>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+        <article class="todo">
+          <ul>
+            <li>titulo</li>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+        <article class="todo">
+          <ul>
+            <li>duracion</li>
+            <li>fehca</li>
+            <li>prioridad</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+  </div>
+  <div id="projectForm" class="hidden">
+    <form>
+      <h2>Crear Projecto</h2>
+      <label for="nombre">nombre</label>
+      <input type="text" name="nombre" id="nombre" class="ProjectInput" required>
+      <input type="submit" id="submitProjec" name="submitProjec" value="crear Projecto">
+      <button id="closeProjectForm">X</button>
+    </form>
+  </div>
+  <div id="todoForm" class="hidden">
+    <form>
+      <h2>Crear tarea</h2>
+      <label for="titulo">titulo</label>
+      <input type="text" name="titulo" id="titulo" required>
+      <label for="duracion">dduracion</label>
+      <input type="text" name="duracion" id="duracion" required>
+      <label for="fecha">fecha limite</label>
+      <input type="date" name="fecha" id="fecha" required>
+      <label for="prioridad">prioridad</label>
+      <input type="text" name="prioridad" id="prioridad" required>
+      <input type="submit" id="submitTodo" name="submitTdodo" value="crear tarea">
+      <button type="button" id="closeTodoForm">X</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
