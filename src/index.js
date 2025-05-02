@@ -16,7 +16,7 @@ const todoFormCloseBtn = document.querySelector("#closeTodoForm");
 
 
 let projects = [];
-let projectoAsociado;
+let projectoAsociado; //esto es una flag para asociar el formulario de la tarea al projecto correspondiente
 // (\(\         (\(\            (\(\
 // ( -.-)       ( -.-)          ( -.-)
 // o_(")(")     o_(")(")        o_(")(")
@@ -55,10 +55,10 @@ function renderProjects() {
 
     root.appendChild(project);
 
-    projectRemoveBtnAttachFunctionality()
-    todoRemoveBtnAttachFunctionality()
-    projectAddTaskBtnAttachFunctionality()
   })
+  projectRemoveBtnAttachFunctionality()
+  todoRemoveBtnAttachFunctionality()
+  projectAddTaskBtnAttachFunctionality()
 }
 
 
@@ -76,23 +76,23 @@ function projectAddTaskBtnAttachFunctionality() {
 function projectRemoveBtnAttachFunctionality() {
   const projectRemoveBtnList = document.querySelectorAll(".projectRemoveBtn")
   projectRemoveBtnList.forEach(button => {
-    const projectID = button.getAttribute("data-id")
     button.addEventListener("click", () => {
-      projects.filter((projecto) => projecto.id !== projectID)
+      const projectID = button.getAttribute("data-id")
+      projects = projects.filter((projecto) => projecto.id !== projectID)
       renderProjects()
     })
   })
 }
 
 function todoRemoveBtnAttachFunctionality() {
-  const listTodoRemoveBtn = document.querySelectorAll(".todoRemeveBtn")
+  const listTodoRemoveBtn = document.querySelectorAll(".todoRemoveBtn")
   listTodoRemoveBtn.forEach(btn => {
-    const todoID = btn.getAttribute("data-id")
     btn.addEventListener("click", () => {
+      const todoID = btn.getAttribute("data-id")
       projects.forEach(projecto => {
-        projecto.todo.filter((item) => item.id !== todoID)
-        renderProjects()
+        projecto.tareas = projecto.tareas.filter((item) => item.id !== todoID)
       })
+      renderProjects()
     })
   })
 }
@@ -145,6 +145,10 @@ taskform.addEventListener("submit", (event) => {
   projecto.addTarea(task);
 
   event.target.reset(); // resetea los valores
+
+  taskform.classList.add("hidden")
+  overlay.classList.add("hidden")
+
   renderProjects();
 
 })
