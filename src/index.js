@@ -17,6 +17,11 @@ const todoFormCloseBtn = document.querySelector("#closeTodoForm");
 
 let projects = [];
 let projectoAsociado; //esto es una flag para asociar el formulario de la tarea al projecto correspondiente
+
+window.onload = function() {
+  loadProjects(); // Load projects from localStorage
+  renderProjects();
+}
 // (\(\         (\(\            (\(\
 // ( -.-)       ( -.-)          ( -.-)
 // o_(")(")     o_(")(")        o_(")(")
@@ -80,6 +85,7 @@ function projectRemoveBtnAttachFunctionality() {
       const projectID = button.getAttribute("data-id")
       projects = projects.filter((projecto) => projecto.id !== projectID)
       renderProjects()
+      saveProjects()
     })
   })
 }
@@ -93,6 +99,7 @@ function todoRemoveBtnAttachFunctionality() {
         projecto.tareas = projecto.tareas.filter((item) => item.id !== todoID)
       })
       renderProjects()
+      saveProjects()
     })
   })
 }
@@ -127,6 +134,9 @@ projectForm.addEventListener("submit", (event) => {
   overlay.classList.add("hidden")
 
   renderProjects();
+  saveProjects();
+
+
 
 })
 
@@ -150,5 +160,18 @@ taskform.addEventListener("submit", (event) => {
   overlay.classList.add("hidden")
 
   renderProjects();
+  saveProjects();
 
 })
+// Save projects to localStorage
+function saveProjects() {
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+// Load projects from localStorage
+function loadProjects() {
+  const storedProjects = localStorage.getItem('projects');
+  if (storedProjects) {
+    projects = JSON.parse(storedProjects);
+  }
+}
